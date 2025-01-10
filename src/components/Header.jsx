@@ -34,13 +34,13 @@ const Header = () => {
     })
   },[cateShow, userShow, cartShow])
   return (
-    <div className="header max-w-container mx-auto flex items-center py-[25px]">
+    <div className="header max-w-container mx-auto flex items-center py-[25px] z-50">
       <div className='cate w-[33.33%] relative'>
         <div className="icons flex items-center gap-3 py-[16px]" ref={cateref}>
           <HiMiniBars3BottomLeft className='cursor-pointer'/>
           <p className='cursor-pointer'>Shop by Category</p>
         </div>
-        <div className='lg:w-[50%] w-full absolute top-[100%] left-0'>
+        <div className='lg:w-[50%] w-full absolute top-[100%] left-0 z-50'>
           {cateShow && 
             <ul className='bg-[#262626] text-[#ffffff70]'>
               <li className='hover:text-[#fff] cursor-pointer px-[20px] py-[16px] hover:bg-[#ffffff20] hover:px-[40px] transition duration-[0.5s]'>Accesories</li>
@@ -75,16 +75,8 @@ const Header = () => {
         </div>
         {
           cartShow &&
-          <div className="cartpop absolute top-[100%] right-0 w-[80%] bg-[#ff000020]">
+          <div className="cartpop absolute top-[100%] right-0 w-[80%] bg-[#ff000080]">
             <ul>
-              <li className='flex justify-between items-center p-[10px] hover:bg-[#e8e8e8] m-[10px] bg-[#fff]'>
-                <div className="thumb w-[80px] h-[80px] bg-[#D8D8D8]"></div>
-                <div className="txt">
-                  <h3 className='font-bold'>Black Smart Watch</h3>
-                  <p>$44.00</p>
-                </div>
-                <ImCross/>
-              </li>
               <li className='flex justify-between items-center p-[10px] hover:bg-[#e8e8e8] m-[10px] bg-[#fff]'>
                 <div className="thumb w-[80px] h-[80px] bg-[#D8D8D8]"></div>
                 <div className="txt">
