@@ -105,7 +105,7 @@ const Header = () => {
             <div className="total p-[15px]">
               <p>Subtotal: <span className='font-bold'>$44.00</span></p>
               <div className="btns flex justify-between">
-                <Link to='/' className='py-[16px] px-[40px] border-[1px] border-[#000] hover:bg-[#000] hover:text-[#fff] duration-[1s]'>View Cart</Link>
+                <Link to='/cart' className='py-[16px] px-[40px] border-[1px] border-[#000] hover:bg-[#000] hover:text-[#fff] duration-[1s]'>View Cart</Link>
                 <Link to='/' className='py-[16px] px-[40px] border-[1px] border-[#000] hover:bg-[#000] hover:text-[#fff] duration-[1s]'>Checkout</Link>
 
               </div>
