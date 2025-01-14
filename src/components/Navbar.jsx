@@ -15,7 +15,6 @@ const Navbar = () => {
             <li><Link to='/shop' className='px-[20px] text-[#767676] hover:text-[#000]'>Shop</Link></li>
             <li><Link to='/about' className='px-[20px] text-[#767676] hover:text-[#000]'>About</Link></li>
             <li><Link to='/contact' className='px-[20px] text-[#767676] hover:text-[#000]'>Contacts</Link></li>
-            <li><Link to='/journal' className='px-[20px] text-[#767676] hover:text-[#000]'>Journal</Link></li>
           </ul>
         </div>
       </div>
