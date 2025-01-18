@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TbCategoryPlus } from "react-icons/tb";
 import { FaRibbon } from "react-icons/fa6";
 import { IoGridSharp } from "react-icons/io5";
 import { FaThList } from "react-icons/fa";
-import cup from '../assets/cup.png'
 import { FaArrowLeft, FaArrowRight, FaHeart, FaCartPlus } from "react-icons/fa";
 import { FaCodeCompare } from "react-icons/fa6";
-import axios from 'axios';
-import Slider from 'react-slick';
+import { ApiData } from '../components/MyApi';
 
 const Shop = () => {
-  let [shopdata, setShopData] = useState([])
-    let getShopData = ()=>{
-        axios.get('https://dummyjson.com/products/category/mobile-accessories').then((response)=>{
-          setShopData(response.data.products);
-          console.log(response.data.products);
-          
-        })
-    }
-    useEffect(()=>{
-        getShopData()
-    },[])
-
-
+  let data = useContext(ApiData)
   return (
     <div className="max-w-container mx-auto py-[50px] flex justify-between">
       <div className="w-[15%]">
@@ -94,10 +80,12 @@ const Shop = () => {
           </div>
         </div>
         <div className="products flex flex-wrap justify-between">
-          {shopdata.map((f)=>(
+          {data.map((f)=>(
               <div className="!w-[24%] bg-[#f2f2f2] p-[20px] my-[10px]">
                 <div className="thumb relative group">
-                    <img src={f.images[0]} alt="" className='w-full h-[280px]'/>
+                    <Link to={`${f.id}`}>
+                      <img src={f.thumbnail} alt="thumb"/>
+                    </Link>
                     <div className="w-[80px] text-center absolute top-0 left-0 py-[5px] bg-[#000] text-[#fff]">
                         <p>{Math.floor(f.discountPercentage)}% Off</p>
                     </div>
