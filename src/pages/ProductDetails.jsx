@@ -20,6 +20,7 @@ const ProductDetails = () => {
         <img src={singleID.thumbnail} alt="" className='hover:scale-[250%] duration-[1s] hover:z-[999] hover:bg-[yellow] hover:fixed hover:top-[50%] hover:translate-y-[-50%]'/>
       </div>
       <h2 className='font-bold text-[30px]'>{singleID.title}</h2>
+      <p className='mb-[20px]'><span className='font-bold'>Description: </span>{singleID.description}</p>
       <div className="price flex items-center gap-3">
         <p><span className='font-bold'>Price: </span></p>
         <p><del>{Math.floor(Math.floor(singleID.price / 100 * singleID.discountPercentage) + singleID.price)}.00$</del></p>
