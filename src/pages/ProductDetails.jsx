@@ -1,9 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ApiData, MyApi } from '../components/MyApi'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
+import MyBtns from '../components/btns/MyBtns';
+import { FaPlus, FaMinus } from "react-icons/fa";
+
 
 const ProductDetails = () => {
+    let [featureShow, setfeatureShow] = useState(false)
+    let changeshow = ()=>{
+      setfeatureShow(!featureShow)
+    }
+    let [shipShow, setshipShow] = useState(false)
+    let changeshipShow = ()=>{
+      setshipShow(!shipShow)
+    }
     let targetID = useParams();
     let [singleID, setSingleID] = useState({})
     let getData = ()=>{
@@ -49,6 +59,26 @@ const ProductDetails = () => {
           <option value="Medium">Medium</option>
           <option value="Large">Large</option>
         </select>
+      </div>
+      <div className="btns flex gap-3">
+        <MyBtns link="/cart" caption="Add to Wish List" />
+        <MyBtns link="/cart" caption="Add to Cart" />
+      </div>
+      <div className="features py-[20px]">
+        <div className="heading flex justify-between items-center">
+          <h2 className='font-bold'>FEATURES  & DETAILS</h2> 
+          { featureShow ? <FaMinus onClick={changeshow}/> : <FaPlus  onClick={changeshow}/>}
+        </div>
+        {featureShow && <p className='text-justify'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, ad quaerat corporis cupiditate placeat consequuntur odit temporibus quia quae minima labore corrupti! Eveniet labore sunt omnis sapiente ex voluptatem! Voluptatem facilis architecto eius totam provident, accusantium alias iure id? Id maiores impedit alias tempora, pariatur, incidunt est consequuntur dolores totam numquam ea soluta nihil. Quos voluptas dolores incidunt quam eos sed velit sequi, distinctio placeat animi dolorum esse mollitia enim numquam debitis suscipit quia similique odio cum ab! Inventore unde sapiente repellendus, saepe iusto nisi reprehenderit molestias illo, magni sint exercitationem labore. Dolore alias quod ullam, molestias quam fuga tempora vel iure temporibus, assumenda, reiciendis repellendus! Temporibus eligendi deleniti molestias sint labore, fuga nihil veniam, vitae, sapiente sequi soluta minus laudantium rerum cupiditate sunt natus. Cumque corporis quos, recusandae ducimus exercitationem labore, dolorum in quia neque distinctio veniam accusamus ut corrupti debitis dicta enim, illum dolores temporibus obcaecati. Rem, officia maxime quibusdam tempora culpa repellat id veritatis necessitatibus nulla unde odio dicta est expedita perspiciatis libero ex dolor quae! Est sint cumque consequatur molestiae mollitia corrupti libero eos autem quisquam architecto, nulla fugit quidem quo repudiandae corporis cupiditate vero aperiam incidunt exercitationem rerum molestias porro harum? Deserunt, molestiae modi consectetur labore inventore temporibus sapiente fugiat saepe tempora magnam sit maiores nemo provident ex, vel suscipit ipsum enim impedit, vitae sunt error dicta dolor quos quis.</p>}
+        
+      </div>
+      <div className="features py-[20px]">
+        <div className="heading flex justify-between items-center">
+          <h2 className='font-bold'>SHIPPING & RETURNS</h2> 
+          { shipShow ? <FaMinus onClick={changeshipShow}/> : <FaPlus  onClick={changeshipShow}/>}
+        </div>
+        {shipShow && <p className='text-justify'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, ad quaerat corporis cupiditate placeat consequuntur odit temporibus quia quae minima labore corrupti! Eveniet labore sunt omnis sapiente ex voluptatem! Voluptatem facilis architecto eius totam provident, accusantium alias iure id? Id maiores impedit alias tempora, pariatur, incidunt est consequuntur dolores totam numquam ea soluta nihil. Quos voluptas dolores incidunt quam eos sed velit sequi, distinctio placeat animi dolorum esse mollitia enim numquam debitis suscipit quia similique odio cum ab! Inventore unde sapiente repellendus, saepe iusto nisi reprehenderit molestias illo, magni sint exercitationem labore. Dolore alias quod ullam, molestias quam fuga tempora vel iure temporibus, assumenda, reiciendis repellendus! Temporibus eligendi deleniti molestias sint labore, fuga nihil veniam, vitae, sapiente sequi soluta minus laudantium rerum cupiditate sunt natus. Cumque corporis quos, recusandae ducimus exercitationem labore, dolorum in quia neque distinctio veniam accusamus ut corrupti debitis dicta enim, illum dolores temporibus obcaecati. Rem, officia maxime quibusdam tempora culpa repellat id veritatis necessitatibus nulla unde odio dicta est expedita perspiciatis libero ex dolor quae! Est sint cumque consequatur molestiae mollitia corrupti libero eos autem quisquam architecto, nulla fugit quidem quo repudiandae corporis cupiditate vero aperiam incidunt exercitationem rerum molestias porro harum? Deserunt, molestiae modi consectetur labore inventore temporibus sapiente fugiat saepe tempora magnam sit maiores nemo provident ex, vel suscipit ipsum enim impedit, vitae sunt error dicta dolor quos quis.</p>}
+        
       </div>
     </div>
   )
