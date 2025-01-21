@@ -66,7 +66,7 @@ const Header = () => {
         {
           userShow &&
           <ul className='absolute top-[100%] right-0 w-[200px] bg-[#262626] text-[#ffffff70]'>
-          <li className='hover:text-[#fff] cursor-pointer px-[20px] py-[16px] hover:bg-[#ffffff20] hover:px-[40px] transition duration-[0.5s]'>My Account</li>
+          <li className='hover:text-[#fff] cursor-pointer px-[20px] py-[16px] hover:bg-[#ffffff20] hover:px-[40px] transition duration-[0.5s]'><Link to='/login'>My Account</Link></li>
           <li className='hover:text-[#fff] cursor-pointer px-[20px] py-[16px] hover:bg-[#ffffff20] hover:px-[40px] transition duration-[0.5s]'>Log Out</li>
           </ul>
         }

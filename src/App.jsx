@@ -8,6 +8,8 @@ import Contact from './pages/Contact'
 import Cart from './pages/Cart'
 import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 function App() {
   let multipage = createBrowserRouter(createRoutesFromElements(
     <Route element={<Layout/>}>
@@ -18,6 +20,8 @@ function App() {
       <Route path='/products' element={<Products/>}></Route>
       <Route path='/shop' element={<Shop/>}></Route>
       <Route path='/shop/:id' element={<ProductDetails/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
     </Route>
   ))
 
