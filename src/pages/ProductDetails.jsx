@@ -4,6 +4,9 @@ import axios from 'axios';
 import MyBtns from '../components/btns/MyBtns';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { GoStarFill } from "react-icons/go";
+import { FaStarHalfStroke } from "react-icons/fa6";
+import { IoStarOutline } from "react-icons/io5";
+
 
 
 
@@ -24,6 +27,10 @@ const ProductDetails = () => {
         setSingleID(response.data)
       });
     };
+    let clientRating = Array.from({length: 5}, (_, index)=>{
+      let number = index + 0.5
+      return singleID.rating > index + 1 ? <GoStarFill/> : singleID.rating > number ? <FaStarHalfStroke/> : <IoStarOutline/>
+    })
     useEffect(()=>{
       getData()
     },[])
@@ -33,7 +40,7 @@ const ProductDetails = () => {
         <img src={singleID.thumbnail} alt="" className='hover:scale-[250%] duration-[1s] hover:z-[999] hover:bg-[yellow] hover:fixed hover:top-[50%] hover:translate-y-[-50%]'/>
       </div>
       <h2 className='font-bold text-[30px]'>{singleID.title}</h2>
-      <p className='mb-[20px]'><span className='font-bold'>Description: </span>{singleID.description}</p>
+      <p className='mb-[20px] w-1/2'><span className='font-bold'>Description: </span>{singleID.description}</p>
       <div className="price flex items-center gap-3">
         <p><span className='font-bold'>Price: </span></p>
         <p><del>{Math.floor(Math.floor(singleID.price / 100 * singleID.discountPercentage) + singleID.price)}.00$</del></p>
@@ -41,7 +48,7 @@ const ProductDetails = () => {
         <p> with {Math.floor(singleID.discountPercentage)}% discount</p>
       </div>
       <div className="Details">
-        <p><span className='font-bold'>Rating: </span>{singleID.rating} of 5.00</p>
+        <p className='flex gap-2'><span className='font-bold'>Rating: </span>{clientRating}</p>
         <p><span className='font-bold'>Stock: </span>{singleID.stock} pieces.</p>
       </div>
       <div className="color flex items-center gap-3">
@@ -67,7 +74,7 @@ const ProductDetails = () => {
         <MyBtns link="/cart" caption="Add to Wish List" />
         <MyBtns link="/cart" caption="Add to Cart" />
       </div>
-      <div className="features py-[20px]">
+      <div className="features py-[20px] w-1/2">
         <div className="heading flex justify-between items-center">
           <h2 className='font-bold'>FEATURES  & DETAILS</h2> 
           { featureShow ? <FaMinus onClick={changeshow}/> : <FaPlus  onClick={changeshow}/>}
@@ -75,7 +82,7 @@ const ProductDetails = () => {
         {featureShow && <p className='text-justify'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, ad quaerat corporis cupiditate placeat consequuntur odit temporibus quia quae minima labore corrupti! Eveniet labore sunt omnis sapiente ex voluptatem! Voluptatem facilis architecto eius totam provident, accusantium alias iure id? Id maiores impedit alias tempora, pariatur, incidunt est consequuntur dolores totam numquam ea soluta nihil. Quos voluptas dolores incidunt quam eos sed velit sequi, distinctio placeat animi dolorum esse mollitia enim numquam debitis suscipit quia similique odio cum ab! Inventore unde sapiente repellendus, saepe iusto nisi reprehenderit molestias illo, magni sint exercitationem labore. Dolore alias quod ullam, molestias quam fuga tempora vel iure temporibus, assumenda, reiciendis repellendus! Temporibus eligendi deleniti molestias sint labore, fuga nihil veniam, vitae, sapiente sequi soluta minus laudantium rerum cupiditate sunt natus. Cumque corporis quos, recusandae ducimus exercitationem labore, dolorum in quia neque distinctio veniam accusamus ut corrupti debitis dicta enim, illum dolores temporibus obcaecati. Rem, officia maxime quibusdam tempora culpa repellat id veritatis necessitatibus nulla unde odio dicta est expedita perspiciatis libero ex dolor quae! Est sint cumque consequatur molestiae mollitia corrupti libero eos autem quisquam architecto, nulla fugit quidem quo repudiandae corporis cupiditate vero aperiam incidunt exercitationem rerum molestias porro harum? Deserunt, molestiae modi consectetur labore inventore temporibus sapiente fugiat saepe tempora magnam sit maiores nemo provident ex, vel suscipit ipsum enim impedit, vitae sunt error dicta dolor quos quis.</p>}
         
       </div>
-      <div className="features py-[20px]">
+      <div className="features py-[20px] w-1/2">
         <div className="heading flex justify-between items-center">
           <h2 className='font-bold'>SHIPPING & RETURNS</h2> 
           { shipShow ? <FaMinus onClick={changeshipShow}/> : <FaPlus  onClick={changeshipShow}/>}
@@ -90,18 +97,18 @@ const ProductDetails = () => {
       <div className="nam flex gap-6 items-center">
         <p className='font-bold text-[18px]'>John Ford</p>
         <div className="star flex gap-2 text-[#995]">
-          <GoStarFill/><GoStarFill/><GoStarFill/><GoStarFill/><GoStarFill/>
+          {clientRating}
         </div>
       </div>
-      <p className='text-justify'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, cumque aperiam cupiditate earum tempora et rerum! Nobis inventore, blanditiis ullam nihil dolores perferendis numquam cumque reiciendis voluptas vitae deserunt placeat officiis consequatur! Deserunt in eligendi sed, repudiandae explicabo ipsam ipsum dolorum nam rem aut laudantium placeat nesciunt repellat rerum ad aperiam cum aliquid repellendus, cumque iure! Voluptatibus nostrum iste facilis odio vero ab, sequi voluptate quae temporibus iusto sint eum sed, perferendis laboriosam quasi, officia reiciendis aspernatur dolor dolore? Quo tempore perspiciatis delectus porro excepturi. At earum nesciunt totam suscipit.</p>
-      <div className="addareview">
+      <p className='text-justify w-1/2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, cumque aperiam cupiditate earum tempora et rerum! Nobis inventore, blanditiis ullam nihil dolores perferendis numquam cumque reiciendis voluptas vitae deserunt placeat officiis consequatur! Deserunt in eligendi sed, repudiandae explicabo ipsam ipsum dolorum nam rem aut laudantium placeat nesciunt repellat rerum ad aperiam cum aliquid repellendus, cumque iure! Voluptatibus nostrum iste facilis odio vero ab, sequi voluptate quae temporibus iusto sint eum sed, perferendis laboriosam quasi, officia reiciendis aspernatur dolor dolore? Quo tempore perspiciatis delectus porro excepturi. At earum nesciunt totam suscipit.</p>
+      <div className="addareview w-1/2">
         <h2 className='text-[20px] font-bold py-[50px]'>Add a Review</h2>
         <label htmlFor="uname" className='font-bold'>Name</label>
         <input type="text" id='uname' className='block p-[5px] border-[1px] mb-[20px]' placeholder='Your name here'/>
         <label htmlFor="umail" className='font-bold'>Email</label>
         <input type="mail" id='umail' className='block p-[5px] border-[1px] mb-[20px]' placeholder='Your email here'/>
         <label htmlFor="txtArea" className='font-bold'>Email</label>
-        <textarea name="msgbox" id="txtArea" className='block border-[1px] min-h-[150px] mb-[30px]'></textarea>
+        <textarea name="msgbox" id="txtArea" className='block border-[1px] min-h-[150px] mb-[30px] w-full p-[10px]'></textarea>
       </div>
       <MyBtns link='/message' caption='Post'/>
     </div>

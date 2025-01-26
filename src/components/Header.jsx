@@ -53,7 +53,7 @@ const Header = () => {
         </div>
       </div>
       <div className="search w-[33.33%] relative">
-        <input type="text" placeholder='Search Products' className='w-full py-[16px] px-[20px]'/>
+        <input type="text" placeholder='Search Products' className='w-full py-[16px] px-[20px] outline-none'/>
         <div className="absolute top-[50%] right-[20px] translate-y-[-50%]">
           <FaSearch/>
         </div>
