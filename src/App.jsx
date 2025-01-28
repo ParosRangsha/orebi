@@ -24,7 +24,7 @@ function App() {
       <Route path='/shop/:id' element={<ProductDetails/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
-      <Route path='/*' element={<Error/>}></Route>
+      <Route path='*' element={<Error/>}></Route>
       <Route path='/myaccount' element={<Myaccount/>}></Route>
     </Route>
   ))
